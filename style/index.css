@@ -138,11 +138,12 @@ body {
 
 .explore-section{
   padding-top: 50px;
+  width: 100%;
 }
 
 .explore-buttons {
   display: flex;
-  justify-content: left;
+  justify-content: center;
   gap: 20px;
 }
 
@@ -254,7 +255,7 @@ body {
 .sources-page{
   text-align: left;
   width: 100%;
-  height: 100%;
+  height: 1200px;
   margin: 0;
   background-color: #CBE0F5; 
   padding: 20px 60px 60px;
