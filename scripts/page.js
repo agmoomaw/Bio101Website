@@ -57,6 +57,20 @@ $(document).ready(function () {
     $(".proposed-page").hide();
   });
 
+  $("#proposed-button-home").click(function () {
+    $(".proposed-page").show();
+    $(".home-page").hide();
+    $(".sources-page").hide();
+    $(".quiz-page").hide();
+  });
+
+  $("#sources-button-home").click(function () {
+    $(".sources-page").show();
+    $(".home-page").hide();
+    $(".proposed-page").hide();
+    $(".quiz-page").hide();
+  });
+
   $("#quiz-form").submit(function (e) {
     e.preventDefault();
     
