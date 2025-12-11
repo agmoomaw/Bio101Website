@@ -14,6 +14,19 @@ const answers = {
   q10: "2"
 };
 
+const answerBlurbs = {
+  q1: "Data centers are large facilities used to store and handle large amounts of online data.",
+  q2: "Water is used to cool the graphics procesing units (GPUs) used in data centers. The most commonly used practice is called evaporative cooling.",
+  q3: "ChatGPT queries consume 10-50x more energy than a traditional Google search.",
+  q4: "1 hyperscale data center uses the same amount of water in a year as 12,000 Americans do.",
+  q5: "Most of the water used for evaporative cooling (the process used to cool down high-power processors) cannot me recycled.",
+  q6: "AI prompts use large-scale computation on high-performance GPUs (graphics processing units).",
+  q7: "The University of Michigan is collaborating with the Los Alamos National Laboratory to build a large-scale data center in Ypsilanti.",
+  q8: "Hyperscale data centers consume high amounts of water and energy.",
+  q9: "Environmental scientists have not been given a complete solution to reverse global warming by artificial intelligence.",
+  q10: "Businesses and average people's data is stored and managed in data centers."
+};
+
 // main
 $(document).ready(function () {
   // ====== landing page ======
@@ -78,7 +91,8 @@ $(document).ready(function () {
     let totalQuestions = Object.keys(answers).length;
     let feedback = "";
 
-    // Check each answer
+    // check each answer
+    /* 
     for (let question in answers) {
       let userAnswer = $(`input[name="${question}"]:checked`).val();
       let isCorrect = userAnswer === answers[question];
@@ -89,6 +103,21 @@ $(document).ready(function () {
       } else {
         feedback += `<div class="answer-item incorrect"><strong>Question ${question.substring(1)}:</strong> Incorrect ✗</div>`;
       }
+    } */
+
+    // check each answer PLUS show answer - not dependent
+    for (let question in answers) {
+      let userAnswer = $(`input[name="${question}"]:checked`).val();
+      let isCorrect = userAnswer === answers[question];
+      let statusText = isCorrect ? "Correct! ✓" : "Incorrect ✗";
+      let blurb = answerBlurbs[question];
+
+      feedback += `
+        <div class="answer-item ${isCorrect ? 'correct' : 'incorrect'}">
+          <strong>Question ${question.substring(1)}:</strong> ${statusText}<br>
+          <span class="answer-blurb">${blurb}</span>
+        </div>
+      `;
     }
 
     // display results buttons
